@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="UGC-APP-Tests" parallel="classes" >
+
+    <parameter name="env" value="prod"/>
+    <parameter name="mode" value="SINGLE"/>
+    <parameter name="deviceProfile" value="GRID_MAC"/>
+
+    <test name="Mac-Chrome">
+        <parameter name="browser" value="CHROME"/>
+        <groups>
+            <run>
+                <include name="ugc-test"></include>
+            </run>
+        </groups>
+        <packages>
+			<package name="org.nt.wsrd.tests.ugcwebform"/>
+        </packages>
+    </test>
+
+</suite>

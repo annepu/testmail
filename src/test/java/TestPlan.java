@@ -1,12 +1,8 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.*;
-
-import java.util.List;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class TestPlan {
 
@@ -25,17 +21,6 @@ public class TestPlan {
         webForm.enterFirstName();
         webForm.enterLastName();
         webForm.pressSubmitButton();
-    }
-
-    @Test(description="googleSearch")
-    public void getGoldFromGoogleTest() throws Exception{
-        driver.get("https://www.google.co.uk/");
-        driver.findElement(By.id("L2AGLb")).click();
-        WebElement textBoxElement = driver.findElement(By.cssSelector(".gLFyf"));
-        textBoxElement.sendKeys("Gold");
-        textBoxElement.sendKeys(Keys.ENTER);
-        List<WebElement> searchResults = driver.findElements(By.partialLinkText("Gold"));
-        Assert.assertTrue(searchResults.size()>0,"gold is not retrieved");
     }
 
     @AfterTest

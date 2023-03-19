@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Holidays-Smoke-Tests" parallel="classes" thread-count="3">
+
+	<parameter name="env" value="test"/>
+	<parameter name="browser" value="CHROME"/>
+
+	<test name="Mac-Chrome">
+		<parameter name="browser" value="CHROME"/>
+		<groups>
+			<run>
+				<include name="smoke"/>
+			</run>
+		</groups>
+		<classes>
+			<class name="mailTravelTests.MailTravelHomePageTests"/>
+		</classes>
+	</test>
+
+</suite>

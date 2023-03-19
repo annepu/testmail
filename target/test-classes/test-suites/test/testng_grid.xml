@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="holidaySmokeRegression" verbose="1" preserve-order="true" parallel="tests">
+    <parameter name="env" value="test"/>
+    <parameter name="mode" value="SINGLE"/>
+    <parameter name="browser" value="chrome"/>
+    <parameter name="deviceProfile" value="GRID_MAC"/>
+    <test name="holidays smoke test run " preserve-order="true">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="deviceProfile" value="GRID_MAC"/>
+        <groups>
+            <run>
+                <exclude name="testOnly"/>
+             <!-- <include name="hols-smoke-test"/> -->
+               <include name="fixMe"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="org.nt.wsrdv2.*"/>
+        </packages>
+    </test>
+
+</suite>

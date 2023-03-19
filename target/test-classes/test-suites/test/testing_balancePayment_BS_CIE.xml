@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Holidays-BalancePayment-Tests" parallel="false" >
+
+	<parameter name="env" value="cie"/>
+	<parameter name="mode" value="BROWSERSTACK"/>
+	<parameter name="deviceProfile" value="BS_MAC_SIERRA_CHROME_59"/>
+
+	<test name="Mac-Chrome">
+		<parameter name="browser" value="chrome"/>
+		<groups>
+			<run>
+				<exclude name="clockService"></exclude>
+			</run>
+		</groups>
+		<classes>
+			<class name="org.nt.wsrd.holidaytests.bookholiday.HolidayPayRemainingBalanceTest"/>
+			<class name="org.nt.wsrd.holidaytests.dataanalytics.HolidayDataAnalyticsTest"/>
+		</classes>
+	</test>
+
+</suite>
