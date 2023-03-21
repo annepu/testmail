@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 
 public class MailTravelHomePageTests extends PageBase {
 
+    private String searchTerm = "India";
+
     @Test(groups="smoke", description="checkingTitle")
     public void checkTitle() throws InterruptedException{
         log.info("-- Starting CheckTitle --- ");
@@ -15,8 +17,9 @@ public class MailTravelHomePageTests extends PageBase {
     }
 
     @Test
-    public void checkMoreInfo(){
-
+    public void enterSearchString(){
+        mailTravelHomePage().enterIntoSearchFieldAndEnter(searchTerm);
     }
+
 
 }

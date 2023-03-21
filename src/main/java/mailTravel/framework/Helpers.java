@@ -9,6 +9,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
 public class Helpers extends TestBase {
 
     public static final int DEFAULT_TIMEOUT_SECONDS = 15;
@@ -21,21 +23,10 @@ public class Helpers extends TestBase {
         }
     }
 
-    public WebElement findElement (By by){
-        var webDriverWait = new WebDriverWait(driver, 10);
-        return webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
-    }
-
     public static Boolean isElementDisplayed(WebDriver driver, By locator) {
         Helpers.waitForPageToLoad();
         WebElement element = driver.findElement(locator);
         return element.isDisplayed() && element.isEnabled();
-    }
-
-    public static void waitFor(WebDriver driver, ExpectedCondition<WebElement> condition, Integer timeout) {
-        timeout = timeout != null ? timeout : 5;
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        wait.until(condition);
     }
 
     public static void fluentWait(WebDriver driver, ExpectedCondition<WebElement> condition, int timeoutMillis) {
@@ -55,10 +46,8 @@ public class Helpers extends TestBase {
 
     public static Boolean waitForIsDisplayed(WebDriver driver, By locator, Integer timeout) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, timeout);
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+            fluentWait(driver, presenceOfElementLocated(locator), timeout);
         } catch (TimeoutException exception) {
-           log.debug("Could not find the expected element");
             return false;
         }
         return true;

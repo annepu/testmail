@@ -57,10 +57,10 @@ public class TestBase {
                     System.setProperty("webdriver.gecko.driver", EnvironmentConfiguration.getGeckoDriverPath());
                     return new FirefoxDriver();
                 case "SAFARI":
+                    // TODO add driver
                     return new SafariDriver();
                 default:
-                    throw new IllegalArgumentException("Unsupported browser type: " + browserType +
-                            "( expected 'firefox', 'chrome', or 'ie')");
+                    throw new IllegalArgumentException("Unsupported browser type: " + browserType);
             }
         } catch (Exception e) {
             log.error("Failed to open browser " + browserType + e);
@@ -100,8 +100,7 @@ public class TestBase {
     }
 
     @AfterMethod(alwaysRun = true)
-    @Parameters("mode")
-    public final void results(ITestResult testResult, Method method, @Optional("single") String mode) {
+    public final void results(ITestResult testResult, Method method) {
         int result = testResult.getStatus();
         ExtentTestManager.getTest().getTest().setStartedTime(Helpers.getTime(testResult.getStartMillis()));
         ExtentTestManager.getTest().getTest().setEndedTime(Helpers.getTime(testResult.getEndMillis()));
@@ -120,6 +119,5 @@ public class TestBase {
         ExtentTestManager.endTest();
         extent.flush();
     }
-
 
 }

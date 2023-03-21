@@ -13,28 +13,22 @@ public class MailTravelHomePage  extends PageBase {
     @FindBy(id="searchtext_freetext_search_form")
     public static WebElement SEARCH_BOX;
 
-    public  static final By MORE_INFO = By.xpath("");
-
     protected WebDriver driver;
 
     public  MailTravelHomePage(WebDriver webDriver){
         this.driver= webDriver;
-        driver.navigate().to(EnvironmentConfiguration.getBaseURL());
-    }
+        driver.navigate().to(EnvironmentConfiguration.getBaseURL());}
 
     public String getTitle() throws InterruptedException {
-        return  driver.getTitle();
-    }
+        return  driver.getTitle();}
 
-    private void enterIntoSearchFieldAndEnter(String searchTerm ){
+    public void enterIntoSearchFieldAndEnter(String searchTerm ){
         clickSearchBox();
         Helpers.clearAndSetText(driver,SEARCH_BOX,searchTerm);
         SEARCH_BOX.sendKeys(Keys.ENTER);
-    }
+        Helpers.waitForIsDisplayed(driver, By.cssSelector("#reset-filters"),20);}
 
-    private void clickSearchBox(){
-        SEARCH_BOX.click();
-    }
-
+    public void clickSearchBox(){
+        SEARCH_BOX.click();}
 
 }

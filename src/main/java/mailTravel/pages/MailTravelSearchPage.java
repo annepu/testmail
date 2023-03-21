@@ -1,5 +1,7 @@
 package mailTravel.pages;
 
+import mailTravel.framework.Helpers;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,8 +12,8 @@ public class MailTravelSearchPage extends PageBase{
 
 	@FindBy(xpath="//span[contains(text(),'11 Days - Classic Escorted Tours')]")
 	private static WebElement TOUR_DESCRIPTION;
-	@FindBy(css="a[title='Tour - India']")
-	private static WebElement TOUR_INDIA_MORE_INFO;
+
+	private static final By TOUR_INDIA_MORE_INFO= By.cssSelector("a[title='Tour - India']");
 
 
     public  MailTravelSearchPage(WebDriver webDriver){
@@ -23,7 +25,8 @@ public class MailTravelSearchPage extends PageBase{
     }
 
     public  void  clickMoreInfo(){
-        TOUR_INDIA_MORE_INFO.click();
+        Helpers.waitForIsDisplayed(driver,TOUR_INDIA_MORE_INFO,20);
+        driver.findElement(TOUR_INDIA_MORE_INFO).click();
     }
 }
 

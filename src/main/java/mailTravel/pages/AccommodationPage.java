@@ -11,6 +11,7 @@ public class AccommodationPage extends PageBase{
     }
 
     public void selectDoubleRoom(){
+        //TODO
     }
 
 }

@@ -21,14 +21,8 @@ public class ExtentTestManager {
 	}
 
 	public static synchronized ExtentTest startTest(String testName) {
-		return startTest(testName, "");
-	}
-
-	public static synchronized ExtentTest startTest(String testName, String desc) {
-		ExtentTest test = extent.startTest(testName, desc);
+		ExtentTest test = extent.startTest(testName);
 		extentTestMap.put((int) Thread.currentThread().getId(), test);
-
 		return test;
 	}
-
 }

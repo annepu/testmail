@@ -15,9 +15,8 @@ public class ExtentReportManager {
 	public synchronized static ExtentReports getInstance() {
 		File extentReportConfig = new File(System.getProperty("user.dir") + "/src/main/resources/extentreport.xml");
 		if (extent == null) {
-			File outputDirectory = new File(context.getOutputDirectory());
 			File resutlDirectory = new File(System.getProperty("user.dir") + "/target/htmlReport");
-			extent = new ExtentReports(resutlDirectory + File.separator + "AutomationTestReport.html", true);
+			extent = new ExtentReports(resutlDirectory + File.separator + "AutoTestReport.html", true);
 			extent.loadConfig(extentReportConfig);
 			Reporter.log("Extent Report directory :" + resutlDirectory, true);
 		}

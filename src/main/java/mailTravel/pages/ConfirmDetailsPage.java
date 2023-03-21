@@ -10,4 +10,8 @@ public class ConfirmDetailsPage extends PageBase{
         this.driver= webDriver;
     }
 
+    public void confirmDetails(){
+        // TODO
+    }
+
 }
