@@ -18,6 +18,7 @@ public class MailTravelHomePageTests extends PageBase {
 
     @Test
     public void enterSearchString(){
+        // Add to commit
         mailTravelHomePage().enterIntoSearchFieldAndEnter(searchTerm);
     }
 
