@@ -7,18 +7,12 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import static mailTravel.framework.DriverPaths.GECKODRIVERPATH;
-import static mailTravel.framework.DriverPaths.IEPATH;
 
 public class EnvironmentConfiguration {
 
     private static Properties ENV_CONFIG= null;
 
     private EnvironmentConfiguration(){
-
-    }
-
-    public static String getInternetExplorerPath() {
-        return IEPATH;
     }
 
     public static String getGeckoDriverPath() {
@@ -41,4 +35,14 @@ public class EnvironmentConfiguration {
             log.error("Could not load environment properties - this is going to break...", e);
         }
     }
+
+    public static String getDummyApi() {
+        return ENV_CONFIG.getProperty("dummyApiTest");
+    }
+
+    public static String getText(String propertyName) {
+        return ENV_CONFIG.getProperty(propertyName);
+    }
+
+
 }

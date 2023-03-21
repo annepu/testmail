@@ -13,4 +13,10 @@ public class MailTravelHomePageTests extends PageBase {
         log.info("title "+ title);
         Assert.assertTrue(title.equalsIgnoreCase("Home Page | Mail Travel"),"Title is incorrect");
     }
+
+    @Test
+    public void checkMoreInfo(){
+
+    }
+
 }

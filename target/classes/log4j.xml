@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="target" class="org.apache.log4j.FileAppender">
-		<param name="File" value="/Users/sowjanyaannepu/SampleSeleniumWebdriverProject/target/nt-testng.log" />
+		<param name="File" value="/Users/sowjanyaannepu/Library/Caches/JetBrains/IdeaIC2021.2/compile-server/target/nt-testng.log" />
 		<param name="Append" value="false" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{HH:mm:ss} [%t] %-5p %c{1}:%L - %m%n" />

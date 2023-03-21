@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Holidays-Smoke-Tests" parallel="classes" thread-count="3">
+<suite name="MailTravelTests" parallel="classes" thread-count="3">
 
 	<parameter name="env" value="test"/>
 	<parameter name="browser" value="CHROME"/>
